@@ -28,6 +28,7 @@ This section describes how to install the plugin and get it working.
 
 
 == Screenshots ==
+
 1. Widget in right sidebar showing map of erupting volcanoes and recent earthquakes
 2. Enlarged view with list of quakes; clicking on anywhere on the dimmed background returns to the normal view
 
