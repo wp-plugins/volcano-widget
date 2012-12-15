@@ -13,7 +13,22 @@ The plugin places a customizeable iframe containing an interactive map of volcan
 == Description ==
 
 The plugin creates a customizeable interactive map with active volcanoes and current earthquakes worldwide. 
-The map is used as widget that can be placed in a sidebar of the layout.
+The map is loaded in an iframe and can be used as widget that can be placed in a sidebar of the layout.
+
+The map itself, which is being updated daily, contains interactive features:
+- click on each earthquake to see details (depth, magnitude, time, source of data and link to detail info)
+- submit a "I felt the earthquake" report straight from the earthquake list or the map
+- click on each volcano to see more details (status, last activity, link to more info)
+- access a list of latest volcano news
+
+The map display can be customized in may ways:
+- display only earthquakes or only volcanoes or both
+- select a geographic region / country from a list (e.g. Australia, British Isles, California, Germany)
+- select a custom geographic region defined by W-E and N-S boundaries
+- start with different zoom and geographical center
+- filter to show only quakes larger than a given magnitude
+- filter to show only volcanoes at a certain activity level
+- show / hide various display controls
 
 == Installation ==
 
@@ -25,7 +40,7 @@ This section describes how to install the plugin and get it working.
 4. Go to 'Design' -> 'Widgets' and drag the widget to any place in your layout, e.g. the right sidebar
 
 == Frequently Asked Questions ==
-
+None yet. 
 
 == Screenshots ==
 
@@ -36,5 +51,10 @@ This section describes how to install the plugin and get it working.
 
 = 1.0 =
 * First release
+
+== Feature request ==
+If you like this widget, we're pleased to have your input about features you might like to see in future versions.
+If you like to encourage further development, please consider making a small donation as the work on the data and the map is an unpaid, time-consuming free-time effort ;-)
+
 
 
