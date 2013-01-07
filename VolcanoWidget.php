@@ -4,7 +4,7 @@ Plugin Name: VolcanoWidget
 Plugin URI: http://earthquakes.volcanodiscovery.com/
 Description: Interactive map of active volcanoes and current earthquakes world-wide
 Author: Tom Pfeiffer
-Version: 1
+Version: 1.1
 Author URI: http://www.volcanodiscovery.com/
 License: GPL2
 */
@@ -209,8 +209,6 @@ function SelectAll(id){
 function updateCode() {
   var c=document.getElementById('VW_mCont');
   var iFrame = document.getElementById('VW_iframe');
-  //var VW_code = document.getElementById('VW_code');
-  //var VW_code2 = document.getElementById('VW_code2');
   var switchLink = document.getElementById('switchLink');
   var VW_backDiv = document.getElementById('VW_backDiv');
   if (document.getElementById('width').value=="auto") var width="100%";
@@ -282,20 +280,21 @@ function updateCode() {
   // update direkt link
   document.getElementById('standAlone').href=widgetSrc1;
   document.getElementById('standAlone').innerHTML=widgetSrc1;
-  // workaround for IE...
-  //VW_code.innerHTML = '<!-- begin VolcanoWidget -->\n'+iFrameCode+'\n<!-- end VolcanoWidget / http://www.volcano-news.com/active-volcanoes-map/get-widget.html -->\n\n';
   
   var enlarge = 'enlarge'; var small = 'small map';
   if (lang==1) {enlarge = 'vergrößern'; var small = 'kleine Karte';}
   if (lang==2) {enlarge = 'agrandir'; var small = 'petite carte';}
   document.getElementById('VW_mSwitch').innerHTML = enlarge;
+  // on preview
   var onClick = "switchFrame('VW_smallMap','VW_bigMap','"+enlarge+"','"+small+"','"+width2+"','"+height+"px',"+lat+","+lon+");return false;";  
   switchLink.setAttribute('onClick',onClick);
   VW_backDiv.setAttribute('onClick',onClick);
+  // on live version
+  var onClickCode = "switchFrame('VW_smallMap','VW_bigMap','"+enlarge+"','"+small+"','"+width+"','"+height+"px',"+lat+","+lon+");return false;";  
   
   var finalCode = '<!-- begin VolcanoWidget -->\n<div id="VW_bigMap" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;z-index:999999;">\n<div id="VW_backDiv" style="background:#000;filter:alpha(opacity=80);opacity:.8;height:100%;width:100%;position:absolute;top:0px;left:0px;z-index:-1;" onclick="'+onClick+'"></div></div>';
   finalCode += '\n<div id="VW_smallMap" style="clear:left"><div id="VW_mCont" style="width:'+width+';height:'+height+'px;position:relative;margin:0;background:#fff;"><a name="VW_mCont"></a>';
-  finalCode += '<div style="position:absolute;top:8px;right:28px;height:15px;text-align:right;vertical-align:middle;font:12px Verdana,sans-serif;font-weight:bold">[<a href="#" style="color:#bb202a" onclick="'+onClick+'"><span id="VW_mSwitch">'+enlarge+'</span></a>]</div>';
+  finalCode += '<div style="position:absolute;top:8px;right:28px;height:15px;text-align:right;vertical-align:middle;font:12px Verdana,sans-serif;font-weight:bold">[<a href="#" style="color:#bb202a" onclick="'+onClickCode+'"><span id="VW_mSwitch">'+enlarge+'</span></a>]</div>';
   finalCode += iFrameCode2+'</div></div>\n';
   finalCode += '<script type="text/javascript">'+'function switchFrame(a,b,c,d,e,f,g,h){var i=document.getElementById("VW_mCont");var j=document.getElementById("VW_mSwitch").firstChild;if(j.nodeValue==c){j.nodeValue=d}else{j.nodeValue=c}var k=i.parentNode.getAttribute("id");if(k==a){var l=b}else{var l=a}var m=i.parentNode;var n=document.getElementById(l);n.appendChild(i);m.style.display="none";n.style.display="";if(l==a){i.style.width=e;i.style.height=f;i.style.margin=0;i.style.top=""}else{i.style.width="80%";i.style.height="80%";i.style.margin="auto";i.style.top="20px"}window.location.hash="VW_mCont"}'; 
   finalCode += '<\/script>\n<!-- end VolcanoWidget / http://www.volcano-news.com/active-volcanoes-map/get-widget.html -->\n\n';

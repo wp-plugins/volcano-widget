@@ -51,6 +51,9 @@ None yet.
 
 = 1.0 =
 * First release
+= 1.1 =
+Minor fix in javascript enlarge function: when returning to small map, the originally set width is restored
+
 
 == Feature request ==
 If you like this widget, we're pleased to have your input about features you might like to see in future versions.
